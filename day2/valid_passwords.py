@@ -28,12 +28,13 @@ class Password:
 def parse(data):
     passwords = []
     for line in data:
-        idx_col = line.find(":")
-        idx_dash = line.find("-")
-        low = int(line[:idx_dash])
-        high = int(line[idx_dash+1:idx_col-2])
-        letter = line[idx_col-1]
-        psw = line[idx_col+2:len(line)-1]
+        line = line.split(' ')
+        nums = line[0].split('-')
+        low = int(nums[0])
+        high = int(nums[1])
+
+        letter = line[1][0]
+        psw = line[2][:-1]
         passwords.append(Password(low, high, letter, psw))
     return passwords
 
