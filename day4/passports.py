@@ -39,7 +39,7 @@ def valid2(passports):
         if (hcl[0] != '#') or (alphas+digits != 6):
             continue
 
-        colors = {'amb':'', 'blu':'', 'brn':'', 'gry':'', 'grn':'', 'hzl':'', 'oth':''}
+        colors = set(['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'])
         if (len(p['ecl']) != 3) or (p['ecl'] not in colors):
             continue
 
